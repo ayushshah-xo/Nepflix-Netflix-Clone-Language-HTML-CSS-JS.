@@ -1,0 +1,557 @@
+
+/* ===================================
+   RESET & BASE STYLES
+   =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+}
+
+/* ===================================
+   MAIN CONTAINER LAYOUT
+   =================================== */
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+.form-section {
+    width: 62%;
+    height: 100%;
+    position: relative;
+    background-image: url('./assets/img/Nepflix\ banner.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ===================================
+   LEFT SIDE: SINGLE IMAGE SECTION
+   =================================== */
+
+.poster-section {
+    width: 38%;
+    height: 100vh; /* full screen height */
+    background: #000;
+    overflow: hidden;
+}
+
+.poster-single-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* fills without distortion */
+    object-position: center;
+    display: block;
+}
+/* ===================================
+   RIGHT SIDE: FORM SECTION
+   60-65% width with background
+   =================================== */
+.form-section {
+    width: 62%;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-y: auto;
+}
+
+/* Dark transparent overlay */
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Content sits above overlay */
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 60px;
+}
+
+/* ===================================
+   TOP NAVIGATION BAR
+   =================================== */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    margin-bottom: 20px;
+}
+
+/* Logo Styling */
+.logo-img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Sign In Section */
+.signin-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.signin-link a {
+    text-decoration: none;
+}
+
+.signin-text {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+.btn-signin {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #e50914;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.btn-signin:hover {
+    background: #e50914;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.5);
+}
+
+/* ===================================
+   SIGN UP FORM CONTAINER
+   Centered vertically and horizontally
+   =================================== */
+.form-container {
+    max-width: 450px;
+    width: 100%;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 60px 68px 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.form-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 28px;
+    color: #fff;
+    letter-spacing: -0.5px;
+}
+
+/* ===================================
+   FORM INPUTS
+   =================================== */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Two-column row for First/Last Name */
+.input-row {
+    display: flex;
+    gap: 16px;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.input-group.half {
+    width: calc(50% - 8px);
+}
+
+/* Input Field Styling */
+.input-group input {
+    width: 100%;
+    padding: 20px 16px 6px;
+    background: #333;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    background: #454545;
+    border-color: #e50914;
+}
+
+.input-group input::placeholder {
+    color: transparent;
+}
+
+/* Floating Label Effect */
+.input-group label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8c8c8c;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: 12px;
+    font-size: 11px;
+    color: #e50914;
+}
+
+/* Password Field with Eye Icon */
+.password-group {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8c8c8c;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.password-toggle:hover {
+    color: #fff;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* ===================================
+   BUTTONS
+   =================================== */
+.btn-continue {
+    width: 100%;
+    padding: 16px;
+    background: #e50914;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    text-align: center;
+}
+.btn-continue {
+    text-decoration: none;
+}
+.btn-continue:hover {
+    background: #f40612;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.5);
+}
+
+.btn-continue:active {
+    transform: translateY(0);
+}
+
+/* ===================================
+   CHECKBOX (Remember Me)
+   =================================== */
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #e50914;
+}
+
+.checkbox-label {
+    font-size: 13px;
+    color: #b3b3b3;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+.checkbox:checked + .checkbox-label,
+.checkbox-label:hover {
+    color: #fff;
+}
+
+/* ===================================
+   OR SEPARATOR
+   =================================== */
+.separator {
+    position: relative;
+    text-align: center;
+    margin: 24px 0 20px;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background: #333;
+}
+
+.separator::before {
+    left: 0;
+}
+
+.separator::after {
+    right: 0;
+}
+
+.separator-text {
+    color: #737373;
+    font-size: 14px;
+    padding: 0 12px;
+    background: rgba(0, 0, 0, 0.85);
+    position: relative;
+}
+
+/* ===================================
+   FACEBOOK BUTTON
+   =================================== */
+.btn-facebook {
+    width: 100%;
+    padding: 14px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.3px;
+}
+
+.btn-facebook:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-facebook svg {
+    color: #1877f2;
+}
+
+/* ===================================
+   reCAPTCHA DISCLAIMER
+   =================================== */
+.recaptcha-text {
+    margin-top: 16px;
+    font-size: 13px;
+    color: #8c8c8c;
+    line-height: 1.6;
+}
+
+.learn-more {
+    color: #e50914;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.learn-more:hover {
+    text-decoration: underline;
+    color: #f40612;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   For tablets and smaller screens
+   =================================== */
+@media (max-width: 1024px) {
+    .poster-section {
+        width: 35%;
+    }
+    
+    .form-section {
+        width: 65%;
+    }
+    
+    .content-wrapper {
+        padding: 0 40px;
+    }
+    
+    .form-container {
+        padding: 48px 48px 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .poster-section {
+        width: 100%;
+        height: 25%;
+        flex-direction: row;
+    }
+    
+    .poster-column {
+        animation: slideRight 60s linear infinite;
+    }
+    
+    @keyframes slideRight {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+    
+    .form-section {
+        width: 100%;
+        height: 75%;
+    }
+    
+    .content-wrapper {
+        padding: 0 24px;
+    }
+    
+    .form-container {
+        padding: 32px 28px;
+        max-width: 100%;
+    }
+    
+    .form-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .poster-section {
+        height: 20%;
+    }
+    
+    .form-section {
+        height: 80%;
+    }
+    
+    .input-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .input-group.half {
+        width: 100%;
+    }
+    
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 0;
+    }
+    
+    .signin-link {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .logo-img {
+        height: 35px;
+    }
+    
+    .form-container {
+        padding: 24px 20px;
+    }
+    
+    .form-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .btn-continue,
+    .btn-facebook {
+        font-size: 14px;
+    }
+}
+
+/* ===================================
+   LOADING ANIMATION
+   =================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-container {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* ===================================
+   CUSTOM SCROLLBAR
+   =================================== */
+.form-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+.form-section::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.form-section::-webkit-scrollbar-thumb {
+    background: #e50914;
+    border-radius: 4px;
+}
+
+.form-section::-webkit-scrollbar-thumb:hover {
+    background: #f40612;
+}

@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepflix – Stream Nepali Cinema</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="open_style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/img/N bar.png">
+</head>
+
+<body>
+    <header>
+        <div class="bg_shadow">
+            <nav>
+                <ul>
+                    <li>
+                        <img src="./assets/img/nepFL.png" class="logo">
+                    </li>
+                <li>
+                    <a href="signup_html.html" class="login_btn">Sign In</a>
+                </li>
+                </ul>
+            </nav>
+            <div class="header_content">
+                <h1>Unlimited movies, TV shows, and more</h1>
+                <h3>Watch anywhere. Cancel anytime.</h3>
+                <h4>Ready to watch? Enter your email to create or restart your membership.</h4>
+                <div class="email_sec">
+                    <input type="text" placeholder="Email Address">
+                    <a href="signup_html.html"class="get_started_btn">
+                        Get Started <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="watchTv">
+    <div class="content_area">
+        <h1>Enjoy on your TV</h1>
+        <h3>Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</h3>
+    </div>
+
+    <div class="screen_area">
+        <img src="./assets/img/tv.png" alt="">
+        <div class="video_area">
+            <video src="./assets/videos/NEPFLIX OFFICIAL VIDEO.mp4" autoplay muted loop></video>
+        </div>
+    </div>
+</section>
+        <section id="downloadShows">
+            <div class="screen_area">
+                <img src="./assets/img/mobile.png" alt="">
+                <div class="box_area">
+                    <img src="./assets/img/boxshot nep.png" alt="">
+                    <div class="text_area">
+                        <h5>Unko Sweater</h5>
+                        <h6>Downloading...</h6>
+                    </div>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </div>
+            </div>
+            
+            <div class="content_area">
+                <h1>Download your shows to watch offline</h1>
+                <h3>Save your favorites easily and always have something to watch.</h3>
+            </div>
+        </section>
+        <section id="watchEverywhere">
+            <div class="content_area">
+                <h1>Watch everywhere</h1>
+                <h3>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</h3>
+            </div>
+        </section>
+      <section id="faq">
+
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq_area">
+
+        <div class="faq">
+            <div class="faq_question">
+                <h4>What is Nepflix?</h4>
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="faq_answer">
+                <p>Nepflix is a Nepali streaming platform created for exhibition purposes.</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq_question">
+                <h4>How much does Nepflix cost?</h4>
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="faq_answer">
+                <p>Nepflix is free for demonstration and learning projects.</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq_question">
+                <h4>Where can I watch?</h4>
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="faq_answer">
+                <p>You can watch Nepflix on Smart TVs, laptops, tablets, and mobile devices.</p>
+            </div>
+        </div>
+
+    </div> <!-- CLOSE faq_area -->
+
+    <h4 class="faq_bottom_text">
+        Ready to watch? Enter your email to create or restart your membership.
+    </h4>
+
+    <div class="email_sec">
+    <input type="text" placeholder="Email Address">
+    <a href="signup_html.html" class="get_started_btn">
+        Get Started <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+
+</section>
+
+<script>
+    const faqs = document.querySelectorAll(".faq");
+
+    faqs.forEach(faq => {
+        const answer = faq.querySelector(".faq_answer");
+
+        faq.addEventListener("click", () => {
+            faq.classList.toggle("active");
+
+            if (faq.classList.contains("active")) {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            } else {
+                answer.style.maxHeight = null;
+            }
+        });
+    });
+</script>
+    </main>
+    <footer>
+        <h4>Questions? Contact us.</h4>
+        <div class="footer_area">
+            <div class="col">
+                <ul>
+                    <li>FAQ</li>
+                    <li>Investor Relations</li>
+                    <li>Privacy</li>
+                    <li>Speed Test</li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul>
+                    <li>Help Center</li>
+                    <li>Jobs</li>
+                    <li>Cookie Preferences</li>
+                    <li>Legal Notices</li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul>
+                    <li>Account</li>
+                    <li>Ways to Watch</li>
+                    <li>Corporate Information</li>
+                    <li>Only on Netflix</li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul>
+                    <li>Media Center</li>
+                    <li>Terms of Use</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+        </div>
+        <div class="tranlation_area">
+            <select name="" id="">
+                <option value="" selected>Nepali</option>
+                <option value="">Hindi</option>
+                <option value="">English</option>
+            </select>
+            <img src="./assets/img/translate.png" alt="">
+        </div>
+        <p>Nepflix</p>
+    </footer>
+</body>
+
+</html>

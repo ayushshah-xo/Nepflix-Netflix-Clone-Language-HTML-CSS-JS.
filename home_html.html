@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nepflix – Stream Nepali Cinema</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Cinzel:wght@600;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="home_style.css"/>
+  <link rel="icon" type="image/x-icon" href="./assets/img/N bar.png">
+</head>
+<body>
+
+  <!-- ===========================
+     LOADING SCREEN
+=========================== -->
+<div id="loader" class="loader">
+
+  <video id="introVideo"
+         class="loader__video"
+         autoplay
+         playsinline>
+
+    <source src="./assets/videos/Nepali_cenema.mp4" type="video/mp4">
+  </video>
+
+</div>
+
+<script>
+const video = document.getElementById("introVideo");
+const loader = document.getElementById("loader");
+
+video.muted = false;
+video.volume = 1;
+
+video.addEventListener("ended", () => {
+    loader.style.opacity = "0";
+    loader.style.transition = "opacity 1s ease";
+
+    setTimeout(() => {
+        loader.style.display = "none";
+    }, 1000);
+});
+</script>
+  <!-- ===========================
+       LEFT SIDEBAR
+  ============================ -->
+     <nav class="sidebar" id="sidebar">
+  <div class="sidebar__brand">
+    <img src="./assets/img/icon.png" 
+         alt="Nepflix Logo" 
+         class="sidebar__brand-logo">
+  </div>
+
+
+    <ul class="sidebar__nav">
+      <li class="sidebar__item sidebar__item--active" title="Home">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span class="sidebar__label">Home</span>
+      </li>
+      <li class="sidebar__item" title="Search">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <span class="sidebar__label">Search</span>
+      </li>
+      <li class="sidebar__item" title="My List">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"/></svg>
+        <span class="sidebar__label">My List</span>
+      </li>
+      <li class="sidebar__item" title="Films">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
+        <span class="sidebar__label">Films</span>
+      </li>
+      <li class="sidebar__item" title="Trending">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        <span class="sidebar__label">Trending</span>
+      </li>
+      <li class="sidebar__item" title="Classics">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <span class="sidebar__label">Classics</span>
+      </li>
+    </ul>
+
+    <div class="sidebar__bottom">
+      <div class="sidebar__item" title="Profile">
+        <div class="sidebar__avatar">AS</div>
+        <span class="sidebar__label">Profile</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===========================
+       MAIN CONTENT
+  ============================ -->
+  <main class="main" id="main">
+
+    <!-- TOP NAV BAR (mobile) -->
+    <header class="topbar">
+      <div class="topbar__brand">NEPFLIX</div>
+      <button class="topbar__menu" id="menuBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <!-- ===========================
+         HERO SECTION
+    ============================ -->
+    <section class="hero" id="hero">
+      <!-- Background with cinematic zoom -->
+      <div class="hero__bg" id="heroBg">
+        <div class="hero__bg-image"></div>
+          <!-- Abstract movie-themed geometric overlay -->
+          <div class="hero__film-overlay"></div>
+          <div class="hero__particles" id="particles"></div>
+        </div>
+        <div class="hero__gradient"></div>
+      </div>
+
+      <!-- Hero Content -->
+      <div class="hero__content">
+
+        <!-- Movie title -->
+        <h1 class="hero__title">
+          <span class="hero__title-np">ऊनको स्वीटर</span>
+          <span class="hero__title-en">unko sweater</span>
+        </h1>
+
+        <!-- Metadata row -->
+        <div class="hero__meta">
+          <div class="hero__imdb">
+            <span class="hero__imdb-label">IMDb</span>
+            <span class="hero__imdb-score">7.4</span>
+          </div>
+          <span class="hero__year">2014</span>
+          <span class="hero__cert">U/A</span>
+          <span class="hero__runtime">2h 15m</span>
+          <span class="hero__lang">नेपाली</span>
+        </div>
+
+        <!-- Genre tags -->
+        <div class="hero__genres">
+          <span class="genre-tag">Drama</span>
+          <span class="genre-tag">Sports</span>
+          <span class="genre-tag">Action</span>
+        </div>
+
+        <!-- Synopsis -->
+        <p class="hero__synopsis">
+         The story revolves around the relationship between Dharanidhar, an innocent soft-spoken man who is a dutiful member of the traditional Kafle Bahun family, and Phool, a lively and spirited girl from the Gurung community. Their gentle, emerging love is immediately complicated by social realities of casteism, class divides, and the pressure of family lineage that still rigidly govern their society.
+        </p>
+
+        <!-- Action buttons -->
+        <div class="hero__actions">
+          <a href="nepflix-watch.html" class="btn btn--play">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+         <path d="M8 5v14l11-7z"/>
+         </svg>
+         Play Now
+          </a>
+          </button>
+          <button class="btn btn--trailer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+            Trailer
+          </button>
+          <button class="btn btn--add" title="Add to My List">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          </button> 
+        </div>
+      </div>
+      <button class="btn btn--play" data-id="movie1">
+      ▶ Play Now
+        </button>
+      <!-- Scroll indicator -->
+      <div class="hero__scroll">
+        <div class="hero__scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ===========================
+         MOVIE SECTIONS
+    ============================ -->
+    <div class="content-area">
+
+      <!-- SECTION 1: New Releases -->
+      <section class="movie-section fade-section" id="newReleases">
+        <div class="section-header">
+          <div class="section-header__left">
+            <span class="section-header__accent"></span>
+            <h2 class="section-title">New Nepali Releases</h2>
+          </div>
+          <a href="#" class="section-more">View All <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
+        </div>
+        <div class="movie-row-wrapper">
+          <button class="row-arrow row-arrow--left" aria-label="Scroll left">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+          </button>
+          <div class="movie-row" id="newReleasesRow">
+            <!-- Cards injected by JS -->
+          
+      </section>
+
+      <!-- SECTION 2: Trending -->
+      <section class="movie-section fade-section" id="trending">
+        <div class="section-header">
+          <div class="section-header__left">
+            <span class="section-header__accent section-header__accent--orange"></span>
+            <h2 class="section-title">Trending in Nepal</h2>
+          </div>
+          <a href="#" class="section-more">View All <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
+        </div>
+        <div class="movie-row-wrapper">
+          <button class="row-arrow row-arrow--left" aria-label="Scroll left">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+          </button>
+          <div class="movie-row" id="trendingRow">
+          </div>
+          <button class="row-arrow row-arrow--right" aria-label="Scroll right">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- SECTION 3: Classics -->
+      <section class="movie-section fade-section" id="classics">
+        <div class="section-header">
+          <div class="section-header__left">
+            <span class="section-header__accent section-header__accent--gold"></span>
+            <h2 class="section-title">Classic Nepali Movies</h2>
+          </div>
+          <a href="#" class="section-more">View All <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
+        </div>
+        <div class="movie-row-wrapper">
+          <button class="row-arrow row-arrow--left" aria-label="Scroll left">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+          </button>
+          <div class="movie-row" id="classicsRow">
+          </div>
+          <button class="row-arrow row-arrow--right" aria-label="Scroll right">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- SECTION 4: Top Rated -->
+      <section class="movie-section fade-section" id="topRated">
+        <div class="section-header">
+          <div class="section-header__left">
+            <span class="section-header__accent section-header__accent--green"></span>
+            <h2 class="section-title">Top Rated Nepali Films</h2>
+          </div>
+          <a href="#" class="section-more">View All <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg></a>
+        </div>
+        <div class="movie-row-wrapper">
+          <button class="row-arrow row-arrow--left" aria-label="Scroll left">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
+          </button>
+          <div class="movie-row" id="topRatedRow">
+          </div>
+          <button class="row-arrow row-arrow--right" aria-label="Scroll right">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+          </button>
+        </div>
+      </section>
+
+    </div><!-- /content-area -->
+
+    <!-- FOOTER -->
+    <footer class="footer">
+  <div class="footer__brand">
+    <img src="./assets/img/nepFL.png" 
+         alt="Nepflix Logo" 
+         class="footer__brand-logo">
+  </div>
+
+  <p class="footer__tagline">नेपाली सिनेमा — Celebrating Nepali Cinema</p>
+  <p class="footer__copy">© 2025 Nepflix. All rights reserved. Made in Nepal.</p>
+</footer>
+
+
+  </main>
+
+  <!-- MOVIE MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal__close" id="modalClose">
+      </button>
+      <div class="modal__hero" id="modalHero"></div>
+      <div class="modal__body">
+        <h2 class="modal__title" id="modalTitle"></h2>
+        <div class="modal__meta" id="modalMeta"></div>
+        <p class="modal__synopsis" id="modalSynopsis"></p>
+        <div class="modal__actions">
+          <button class="btn btn--play">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            Play
+          </button>
+          <button class="btn btn--trailer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+            Trailer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="home_style.js"></script>
+</body>
+</html>

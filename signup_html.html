@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Nepflix Nepal</title>
+    <link rel="stylesheet" href="signup_style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/img/N bar.png">
+</head>
+<body>
+     
+    <!-- Main Container -->
+    <div class="container">
+        
+       <!-- LEFT SIDE: Single Image -->
+<div class="poster-section">
+    <img src="assets/img/sign_up_page_pic.png" alt="Signup Image" class="poster-single-img">
+</div>
+
+        <!-- RIGHT SIDE: Sign Up Form -->
+        <div class="form-section">
+            <!-- Background Image with Overlay -->
+            <div class="background-overlay"></div>
+            
+            <!-- Content Wrapper -->
+            <div class="content-wrapper">
+                
+                <!-- Top Navigation Bar -->
+                <div class="top-bar">
+                    <!-- Logo (Left) -->
+                    <div class="logo">
+                        <img src="./assets/img/iconN.png" alt="Nepflix Logo" class="logo-img">
+                    </div>
+                    
+                    <!-- Sign In Link (Right) -->
+                    <div class="signin-link">
+                        <span class="signin-text">Already have an account?</span>
+                        <a href="index.html"><button class="btn-signin">Sign in</button></a>
+                    </div>
+                </div>
+
+                <!-- Sign Up Form Container -->
+                <div class="form-container">
+                    <h1 class="form-title">Sign up</h1>
+                    
+                    <form class="signup-form" id="signupForm">
+                        <!-- First Name & Last Name Row -->
+                        <div class="input-row">
+                            <div class="input-group half">
+                                <input type="text" id="firstName" placeholder=" " required>
+                                <label for="firstName">First Name</label>
+                            </div>
+                            <div class="input-group half">
+                                <input type="text" id="lastName" placeholder=" " required>
+                                <label for="lastName">Last Name</label>
+                            </div>
+                        </div>
+
+                        <!-- Email or Phone -->
+                        <div class="input-group">
+                            <input type="email" id="email" placeholder=" " required>
+                            <label for="email">Email or Phone</label>
+                        </div>
+
+                        <!-- Password with Eye Icon -->
+                        <div class="input-group password-group">
+                            <input type="password" id="password" placeholder=" " required minlength="8">
+                            <label for="password">Password</label>
+                            <span class="password-toggle" onclick="togglePassword()">
+                                <svg id="eyeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <!-- Continue Button -->
+                       <a href="home_html.html" class="btn-continue">Continue</a>
+<script>
+const video = document.getElementById("introVideo");
+const loader = document.getElementById("loader");
+
+video.addEventListener("loadedmetadata", () => {
+  video.muted = false;
+  video.volume = 1;
+  video.play();
+});
+
+video.addEventListener("ended", () => {
+  // Keep intro visible 3 extra seconds
+  setTimeout(() => {
+    loader.style.opacity = "0";
+    loader.style.transition = "opacity 1s ease";
+
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 1000);
+
+  }, 3000); // 3000ms = 3 seconds extra
+});
+</script>
+
+                        <!-- Remember Me Checkbox -->
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember" class="checkbox">
+                            <label for="remember" class="checkbox-label">Remember me</label>
+                        </div>
+
+                        <!-- OR Separator -->
+                        <div class="separator">
+                            <span class="separator-text">or</span>
+                        </div>
+
+                        <!-- Facebook Button -->
+                        <button type="button" class="btn-facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                            Sign up with Facebook
+                        </button>
+
+                        <!-- reCAPTCHA Disclaimer -->
+                        <p class="recaptcha-text">
+                            This page is protected by Google reCAPTCHA to ensure you're not a bot. 
+                            <a href="#" class="learn-more">Learn more.</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Password Visibility
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>';
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>';
+            }
+        }
+
+        // Form Submission Handler
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Basic validation
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long');
+                return;
+            }
+            
+            // Store user data (in real app, send to server)
+            const userData = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                timestamp: new Date().toISOString()
+            };
+            
+            localStorage.setItem('nepflixUser', JSON.stringify(userData));
+            
+            // Show success message
+            alert('Account created successfully! Welcome to Nepflix, ' + firstName + '!');
+            
+            // Redirect to main page
+            window.location.href = 'index.html';
+        });
+
+        // Pre-fill email if passed from landing page
+        const urlParams = new URLSearchParams(window.location.search);
+        const emailParam = urlParams.get('email');
+        if (emailParam) {
+            document.getElementById('email').value = emailParam;
+        }
+    </script>
+</body>
+</html>
+
